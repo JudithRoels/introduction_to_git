@@ -1,0 +1,24 @@
+---
+title: "gapminder"
+author: "Judith"
+date: "6/22/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+gapminder <- readr::read_csv('https://raw.githubusercontent.com/carpentries-incubator/open-science-with-r/gh-pages/data/gapminder.csv')
+```
+
+```{r}
+library(tidyverse)
+
+my_plot <- ggplot(gapminder %>% filter(country == "Canada"), aes(x = year, y = gdpPercap))+
+  geom_point()+
+  labs(title = "Canada","GDP per capita")
+my_plot
+
+```
